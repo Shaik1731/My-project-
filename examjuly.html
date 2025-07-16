@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>QuickCard</h1>
+    <form id="foem">
+        <input id="name" placeholder="Item" required />
+        <input id="qty"  type="number" min="1" value="1" required />
+        <input id="price" type="number" min="0" step="o.o1" placeholder="$ Price " required />
+        <select id="cat">
+        <option>Dairy</option>
+        <option>Produce</option>
+        <option>Snacks</option>
+        </select>
+        <button>Add</button>
+    </form>
+    <div>
+        <button onclick="filter('All')">All</button>
+        <button onclick="filter('Dairy')">Dairy</button>
+        <button onclick="filter('Produce')">Produce</button>
+        <button onclick="filter('Snacks')">Snacks</button>
+    </div>
+    <p>Total Items : <span id="totalItem">0</span>| $<span id="totalCost">0.00</span> </p>
+    <div id="list"></div>
+    <script>
+        let form=document.getElementById('form')
+        let listEl=document.getElementById('list')
+        let filterCat='All'
+    </script>
+</body>
+</html>
