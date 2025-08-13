@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>CodeKeep</header>
+    <div class="syncing" id="syncStatus"></div>
+    <form id="snippetForm">
+        <input type="text" id="title" placeholder="Snippet Title" required />
+        <select id="language" required>
+            <option value="">Select Language</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Other">Other</option>
+        </select>
+        <textarea id="code"  rows="5" placeholder="code here... " required></textarea>
+     <button type="submit"> Save Snoppet</button>
+    </form>
+    <div class="snippets-container" id="snippetsContainer"></div>
+   <script>
+    const form=document.getElementById('snippetForm');
+    const container =document.getElementById('snippetsContainer');
+    const syncStatus=document.getElementById('syncStatus');
+    const STORAGE_KEY= 'codekeep_snippets';
+    let snippeets=[];
+    function renderSnippet(snippet,isFromAPI=false){
+        const card=document.createElement('div');
+        card.className='snippet-card';
+        card.dataset.id=snippet.id;
+        card.innerHTML=`
+         <strong> ${snippet.title}</strong><em>(${snippet.language})</em>
+         <pre>${snippet.code}</pre>
+         <button class="delete-btn">Delete<button>
+        `;
+    }
+   </script>
+</body>
+</html>
